@@ -44,11 +44,12 @@ header {
     text-decoration: none;
     color: inherit;
 }
-.subtitle {
+.subtitle a {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.4);
     font-family: 'ABeeZee', sans-serif;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
 }
 .content img {
     width: 100px;
