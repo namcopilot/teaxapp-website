@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function getBrowserLanguage() {
+            return navigator.language || navigator.userLanguage;
+        }
+
+        function setLanguage() {
+            let lang = getQueryParam('lang') || getBrowserLanguage().split('-')[0];
+            const supportedLanguages = ['en', 'vi', 'es', 'fr', 'de', 'zh', 'ja', 'ko', 'ru', 'pt', 'it', 'nl', 'pl', 'tr', 'sv', 'id', 'th', 'ar', 'hi'];
+            if (!supportedLanguages.includes(lang)) {
+                lang = 'en';
+            }
+
+            const translations = {
+                'en': { title: 'Support Information', message: 'If you have a question about our apps, or a suggestion to make, or anything else, feel free to contact us', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. All rights reserved. | <a href="/contact">Contact</a>' },
+                'vi': { title: 'Thông Tin Hỗ Trợ', message: 'Nếu bạn có câu hỏi về ứng dụng của chúng tôi, hoặc đề xuất, hoặc bất cứ điều gì khác, đừng ngần ngại liên hệ với chúng tôi', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Mọi quyền được bảo lưu. | <a href="/contact">Liên hệ</a>' },
+                'es': { title: 'Información de Soporte', message: 'Si tienes alguna pregunta sobre nuestras aplicaciones, una sugerencia o cualquier otra cosa, no dudes en contactarnos', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Todos los derechos reservados. | <a href="/contact">Contacto</a>' },
+                'fr': { title: 'Informations de Support', message: 'Si vous avez une question sur nos applications, une suggestion ou toute autre chose, n’hésitez pas à nous contacter', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Tous droits réservés. | <a href="/contact">Contact</a>' },
+                'de': { title: 'Support-Informationen', message: 'Wenn Sie eine Frage zu unseren Apps haben, eine Anregung machen möchten oder sonst etwas, zögern Sie nicht, uns zu kontaktieren', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Alle Rechte vorbehalten. | <a href="/contact">Kontakt</a>' },
+                'zh': { title: '支持信息', message: '如果您对我们的应用有任何问题、建议或其他事项，请随时联系我们', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. 保留所有权利。 | <a href="/contact">联系</a>' },
+                'ja': { title: 'サポート情報', message: 'アプリについての質問、提案、その他何でも、お気軽にお問い合わせください', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. すべての権利を保有します。 | <a href="/contact">お問い合わせ</a>' },
+                'ko': { title: '지원 정보', message: '앱에 대한 질문, 제안 또는 기타 사항이 있으면 언제든지 문의하세요', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. 모든 권리 보유. | <a href="/contact">문의하기</a>' },
+                'ru': { title: 'Информация о поддержке', message: 'Если у вас есть вопрос о наших приложениях, предложение или что-то еще, не стесняйтесь связаться с нами', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Все права защищены. | <a href="/contact">Связаться</a>' },
+                'pt': { title: 'Informações de Suporte', message: 'Se você tem alguma dúvida sobre nossos aplicativos, uma sugestão ou qualquer outra coisa, sinta-se à vontade para entrar em contato', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Todos os direitos reservados. | <a href="/contact">Contato</a>' },
+                'it': { title: 'Informazioni di Supporto', message: 'Se hai una domanda sulle nostre app, un suggerimento o qualsiasi altra cosa, non esitare a contattarci', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Tutti i diritti riservati. | <a href="/contact">Contatti</a>' },
+                'nl': { title: 'Ondersteuningsinformatie', message: 'Als u een vraag heeft over onze apps, een suggestie of iets anders, neem dan gerust contact met ons op', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Alle rechten voorbehouden. | <a href="/contact">Contact</a>' },
+                'pl': { title: 'Informacje o wsparciu', message: 'Jeśli masz pytanie dotyczące naszych aplikacji, sugestię lub cokolwiek innego, skontaktuj się z nami', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Wszelkie prawa zastrzeżone. | <a href="/contact">Kontakt</a>' },
+                'tr': { title: 'Destek Bilgileri', message: 'Uygulamalarımız hakkında bir sorunuz, bir öneriniz veya başka bir konuda sorunuz varsa, bizimle iletişime geçmekten çekinmeyin', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Tüm hakları saklıdır. | <a href="/contact">İletişim</a>' },
+                'sv': { title: 'Supportinformation', message: 'Om du har en fråga om våra appar, ett förslag eller något annat, tveka inte att kontakta oss', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Alla rättigheter förbehållna. | <a href="/contact">Kontakt</a>' },
+                'id': { title: 'Informasi Dukungan', message: 'Jika Anda memiliki pertanyaan tentang aplikasi kami, saran, atau hal lainnya, jangan ragu untuk menghubungi kami', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. Semua hak dilindungi. | <a href="/contact">Kontak</a>' },
+                'th': { title: 'ข้อมูลสนับสนุน', message: 'หากคุณมีคำถามเกี่ยวกับแอปของเรา ข้อเสนอแนะ หรือเรื่องอื่น ๆ โปรดติดต่อเรา', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. สงวนลิขสิทธิ์ทั้งหมด. | <a href="/contact">ติดต่อ</a>' },
+                'ar': { title: 'معلومات الدعم', message: 'إذا كان لديك سؤال حول تطبيقاتنا أو اقتراح أو أي شيء آخر، فلا تتردد في الاتصال بنا', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. جميع الحقوق محفوظة. | <a href="/contact">اتصل</a>' },
+                'hi': { title: 'समर्थन जानकारी', message: 'यदि आपके पास हमारे ऐप्स के बारे में कोई प्रश्न है, कोई सुझाव है, या कुछ और है, तो बेझिझक हमसे संपर्क करें', email: 'teaxapp@gmail.com', footer: '© 2025 Teaxapp. सर्वाधिकार सुरक्षित. | <a href="/contact">संपर्क करें</a>' }
+            };
+
+            document.getElementById('title').innerText = translations[lang].title;
+            document.getElementById('message').innerText = translations[lang].message;
+            document.getElementById('email').innerText = translations[lang].email;
+            document.getElementById('email').href = 'mailto:' + translations[lang].email;
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: block;
+            background-color: #fff;
+            color: #333;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 110px;
+            text-align: center;
+            background: white;
+            padding: 20px 40px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .container a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container. a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body onload="setLanguage()">
+    <header>
+        <div class="logo"> <a href="https://teaxapp.com"><span>Tea</span><strong>xapp</strong></a> </div>
+        <div class="subtitle">made apps with the teas</div>
+    </header>
+    <div class="container">
+        <h1 id="title">Support Information</h1>
+        <p id="message">For support please contact:</p>
+        <p><a id="email" href="mailto:teaxapp@gmail.com">teaxapp@gmail.com</a></p>
+    </div>
+    <footer class="footer">
+        <p id="footer-text">Copyright © 2015-2025. Teaxapp. All rights reserved.</p>
+    </footer>
+</body>
+</html>
