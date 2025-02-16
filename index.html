@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaxapp - Time Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'ABeeZee';
+            src: url('fonts/ABeeZee-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto-Regular.ttf') format('truetype');
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            padding: 30px 0;
+            border-bottom: 1px solid #ddd;
+            position: absolute;
+            top: 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .logo {
+            font-size: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+        .logo span {
+            color: #00C013;
+        }
+        .logo strong {
+            font-weight: 300;
+        }
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.4);
+            font-family: 'ABeeZee', sans-serif;
+            letter-spacing: 1.2px;
+        }
+        .content img {
+            width: 100px;
+            height: 100px;
+        }
+        .app-title {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: rgb(0, 0, 0);
+            margin-top: 10px;
+        }
+        .app-subtitle {
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: rgba(0, 0, 0, 0.45);
+        }
+        .store-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .store-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+        .store-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .store-links img {
+            width: 177px;
+            height: 59px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+        .store-item a.footer {
+            position: absolute;
+            bottom: -50px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .store-item a.footer:hover {
+            color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            .store-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo"> <a href="https://teaxapp.com"><span>Tea</span><strong>xapp</strong></a> </div>
+    <div class="subtitle">made apps with the teas</div>
+</header>
+<div class="content">
+    <img src="assets/icon.png" alt="App Icon">
+    <div class="app-title">Time Calculator</div>
+    <div class="app-subtitle">Hours work & Time Between</div>
+    <div class="store-container">
+        <div class="store-links">
+            <div class="store-item">
+                <a href="https://apps.apple.com/us/app/time-calculator/id1369060155"><img src="assets/app-store.png" alt="Download on App Store"></a>
+                <a href="support/" class="footer">Support</a>
+            </div>
+            <div class="store-item">
+                <a href="https://play.google.com/store/apps/details?id=com.teaxapp.hourcal"><img src="assets/google-play.png" alt="Get it on Google Play"></a>
+                <a href="privacy-policy.html" class="footer">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

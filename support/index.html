@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function getBrowserLanguage() {
+            return navigator.language || navigator.userLanguage;
+        }
+
+        function setLanguage() {
+            let lang = getQueryParam('lang') || getBrowserLanguage().split('-')[0];
+            const supportedLanguages = ['en', 'vi', 'es', 'fr', 'de', 'zh', 'ja', 'ko', 'ru', 'pt', 'it', 'nl', 'pl', 'tr', 'sv', 'id', 'th', 'ar', 'hi'];
+            if (!supportedLanguages.includes(lang)) {
+                lang = 'en';
+            }
+
+            const translations = {
+                'en': { title: 'Support Information', message: 'For support please contact:', email: 'teaxapp@gmail.com' },
+                'vi': { title: 'Thông Tin Hỗ Trợ', message: 'Để được hỗ trợ vui lòng liên hệ:', email: 'teaxapp@gmail.com' },
+                'es': { title: 'Información de Soporte', message: 'Para soporte, por favor contacte:', email: 'teaxapp@gmail.com' },
+                'fr': { title: 'Informations de Support', message: 'Pour obtenir de l’aide, veuillez contacter :', email: 'teaxapp@gmail.com' },
+                'de': { title: 'Support-Informationen', message: 'Für Support kontaktieren Sie bitte:', email: 'teaxapp@gmail.com' },
+                'zh': { title: '支持信息', message: '如需支持，请联系：', email: 'teaxapp@gmail.com' },
+                'ja': { title: 'サポート情報', message: 'サポートについては、以下にお問い合わせください：', email: 'teaxapp@gmail.com' },
+                'ko': { title: '지원 정보', message: '지원이 필요하시면 다음으로 연락하세요:', email: 'teaxapp@gmail.com' },
+                'ru': { title: 'Информация о поддержке', message: 'Для поддержки свяжитесь с нами:', email: 'teaxapp@gmail.com' },
+                'pt': { title: 'Informações de Suporte', message: 'Para suporte, entre em contato:', email: 'teaxapp@gmail.com' },
+                'it': { title: 'Informazioni di Supporto', message: 'Per assistenza, contattare:', email: 'teaxapp@gmail.com' },
+                'nl': { title: 'Ondersteuningsinformatie', message: 'Neem contact op voor ondersteuning:', email: 'teaxapp@gmail.com' },
+                'pl': { title: 'Informacje o wsparciu', message: 'Aby uzyskać wsparcie, skontaktuj się:', email: 'teaxapp@gmail.com' },
+                'tr': { title: 'Destek Bilgileri', message: 'Destek için lütfen iletişime geçin:', email: 'teaxapp@gmail.com' },
+                'sv': { title: 'Supportinformation', message: 'För support, vänligen kontakta:', email: 'teaxapp@gmail.com' },
+                'id': { title: 'Informasi Dukungan', message: 'Untuk dukungan, silakan hubungi:', email: 'teaxapp@gmail.com' },
+                'th': { title: 'ข้อมูลสนับสนุน', message: 'สำหรับการสนับสนุน กรุณาติดต่อ:', email: 'teaxapp@gmail.com' },
+                'ar': { title: 'معلومات الدعم', message: 'للدعم، يرجى الاتصال:', email: 'teaxapp@gmail.com' },
+                'hi': { title: 'सहायता जानकारी', message: 'सहायता के लिए कृपया संपर्क करें:', email: 'teaxapp@gmail.com' }
+            };
+
+            document.getElementById('title').innerText = translations[lang].title;
+            document.getElementById('message').innerText = translations[lang].message;
+            document.getElementById('email').innerText = translations[lang].email;
+            document.getElementById('email').href = 'mailto:' + translations[lang].email;
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: block;
+            background-color: #fff;
+            color: #333;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 110px;
+            text-align: center;
+            background: white;
+            padding: 20px 40px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .container a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container. a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body onload="setLanguage()">
+<header>
+    <div class="logo"> <a href="https://teaxapp.com"><span>Tea</span><strong>xapp</strong></a> </div>
+    <div class="subtitle">made apps with the teas</div>
+</header>
+<div class="container">
+    <h1 id="title">Support Information</h1>
+    <p id="message">For support please contact:</p>
+    <p><a id="email" href="mailto:teaxapp@gmail.com">teaxapp@gmail.com</a></p>
+</div>
+</body>
+</html>
