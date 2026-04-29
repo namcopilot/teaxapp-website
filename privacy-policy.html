@@ -3,120 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Teaxapp</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: block;
-            background-color: #fff;
-            color: #333;
-            text-align: left;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            text-align: center;
-        }
-        .privacy {
-            margin-top: 110px;
-            padding: 20px;
-            text-align: left;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .privacy h1, .privacy h2, .privacy h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .privacy p {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        .privacy ul {
-            padding-left: 20px;
-        }
-    </style>
+    <title>Privacy Policy | TimeCalc</title>
+    <meta name="description" content="Privacy Policy for TimeCalc.">
+    <link rel="stylesheet" href="./site.css">
 </head>
-<body>
-    <header>
-        <div class="logo"> <a href="https://teaxapp.com"><span>Tea</span><strong>xapp</strong></a> </div>
-        <div class="subtitle">made apps with the teas</div>
+<body data-page="privacy">
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="./index.html">
+                <img class="brand-mark" src="./imgs/timecalc-icon.png" alt="TimeCalc app icon">
+                <span class="brand-copy">
+                    <span class="brand-title" data-i18n-common="appName">TimeCalc</span>
+                    <span class="brand-subtitle" data-i18n-common="subtitle">Hours, Duration, Dates &amp; Age</span>
+                </span>
+            </a>
+
+            <div class="header-store-buttons" aria-label="Download TimeCalc">
+                <a class="store-link os-store-link" data-store-platform="ios" href="https://apps.apple.com/us/app/time-calculator/id1369060155" target="_blank" rel="noreferrer">
+                    <img id="app-store-badge-header" class="store-badge store-badge-header" src="./imgs/store-badges/app-store/en.svg" alt="Download on the App Store">
+                </a>
+                <a class="store-link os-store-link" data-store-platform="android" href="https://play.google.com/store/apps/details?id=com.teaxapp.hourcal" target="_blank" rel="noreferrer">
+                    <img id="google-play-badge-header" class="store-badge store-badge-header" src="./imgs/store-badges/google-play/en.svg" alt="Get it on Google Play">
+                </a>
+            </div>
+        </div>
     </header>
-    <div class="privacy">
-        <h1>Privacy Policy</h1>
-        <h2>Introduction</h2>
-        <p>Teaxapp develops and publishes various mobile applications for smartphones and mobile devices. We are dedicated to protect our users' (“users” or “you”) privacy rights. The purpose of this page is to inform you about our policies with the collection, use, and disclosure of Personally Identifiable Information(“PII”) if anyone decided to use the applications or software offered by us (collectively, the “Service”). If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personally Identifiable Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
 
-        <h2>Data We Collect</h2>
-        <p>We do not collect any information that users provide directly through the app contents or app features. All data entered by users through the app is stored only on the user's device. However, we may require you to provide us with certain Personally Identifiable Information for a better experience while using our Service. The information that we request is will be retained by us and used as described in this privacy policy. The app does use third party services that may collect information used to identify you.</p>
-        <p>[ Links to privacy policy of third party service providers used by the Service ]</p>
-        <ul>
-            <li><a href="https://policies.google.com/privacy">Admob</a></li>
-        </ul>
-        <p>We use an analytics tool called Firebase in order to gain insight into how our app is being used. This tool automatically collect certain types of information.</p>
-        <p>[ The list of features of Firebase we use in the application ]</p>
-        <ul>
-            <li>Google Analytics for Firebase</li>
-            <li>Firebase Remote Config</li>
-            <li>Firebase Dynamic Links</li>
-            <li>Firebase Predictions</li>
-        </ul>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-card">
+                    <h1 data-i18n="privacy.title">Privacy Policy</h1>
+                    <p data-i18n="privacy.intro">TimeCalc is designed to keep user-entered content on the device. This page explains how information may be collected, used, and protected when you use the app.</p>
+                </div>
+            </div>
+        </section>
 
-        <p>[ The list of certain types of information Admob automatically collect from this application ]</p>
-        <ul>
-            <li>Cookies</li>
-            <li>Unique device identifiers for advertising (Google Advertiser ID or IDFA, for example)</li>
-            <li>Usage Data</li>
-        </ul>
+        <section class="section">
+            <div class="container legal-layout">
+                <div>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section1Title">Information we collect</h2>
+                        <p data-i18n="privacy.section1Text">Data entered into app features is stored only on your device. Some third-party services used by the app may collect information needed to operate, improve, or measure the service.</p>
+                        <ul>
+                            <li data-i18n="privacy.section1Bullet1">User-entered app data is stored locally on the device</li>
+                            <li data-i18n="privacy.section1Bullet2">AdMob may collect cookies, usage data, and advertising identifiers</li>
+                            <li data-i18n="privacy.section1Bullet3">Firebase-related services may collect usage information</li>
+                        </ul>
+                    </article>
 
-        <h2>How We Use Information We Collect</h2>
-        <p>We may use the information collected from you in any one or more of the following ways:</p>
-        <ul>
-            <li>To maintain and improve our Service</li>
-            <li>To assist us in analyzing how our Service is used</li>
-            <li>To prevent fraud or potentially illegal, unethical activities</li>
-            <li>To prevent ad-fraud and abuse</li>
-            <li>To personalizes user's advertising experience</li>
-            <li>To provide advertising and promotional information in connection with the Service</li>
-        </ul>
-        <p>We want to inform users of this Service that these third parties have access to your certain Personally Identifiable Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section2Title">How information is used</h2>
+                        <p data-i18n="privacy.section2Text">Collected information may be used to maintain and improve the app, analyze usage, prevent fraud and abuse, personalize advertising, and provide promotional information related to the service.</p>
+                    </article>
 
-        <h2>How We Protect Your Information</h2>
-        <p>The security and confidentiality of your Personally Identifiable Information is very important to us, so we take appropriate security measures (including physical, electronic and procedural measures) to help safeguard your information from unauthorized access and disclosure. Please know that, despite our efforts, no security measures are perfect or impenetrable.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section3Title">Third-party services</h2>
+                        <p data-i18n="privacy.section3Text">The app uses third-party services such as AdMob and Firebase-related services, including Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links, and Firebase Predictions.</p>
+                    </article>
 
-        <h2>How We Share Your Information</h2>
-        <p>We do not use or share any information of yours with anyone except as described in this Privacy Policy page. We do not sell any information of yours to third parties.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section4Title">How information is protected</h2>
+                        <p data-i18n="privacy.section4Text">Appropriate physical, electronic, and procedural measures are used to help protect information. No security method is completely perfect or impenetrable.</p>
+                    </article>
 
-        <h2>About Deletion Of Information</h2>
-        <p>All data entered by you through the app will be deleted by removing the app from your device. Personally Identifiable Information that is collected automatically will be processed and stored for as long as required by the purpose they have been collected for. Personally Identifiable Information will be deleted after a reasonable period if you do not use our Service anymore.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section5Title">Sharing and sale of information</h2>
+                        <p data-i18n="privacy.section5Text">Information is not sold to third parties. Information is not shared except as described in this policy and as needed to operate the service.</p>
+                    </article>
 
-        <h2>Further information about Personal Data</h2>
-        <ul>
-            <li>The Service is not directed to children under the age of 13</li>
-        </ul>
-        <p>Users declare themselves to be adult according to their applicable legislation. Minors may use this Application only with the assistance of a parent or guardian. Under no circumstance persons under the age of 13 may use this Application.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section6Title">Deletion</h2>
+                        <p data-i18n="privacy.section6Text">User-entered data can be removed by deleting the app from the device. Automatically collected information may be retained only as long as reasonably necessary for the purposes described here.</p>
+                    </article>
 
-        <h2>Links to Other Sites</h2>
-        <p>This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section7Title">Children</h2>
+                        <p data-i18n="privacy.section7Text">The service is not directed to children under 13 years of age. Minors should use the app only with the assistance of a parent or guardian.</p>
+                    </article>
 
-        <h2>Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section8Title">External links</h2>
+                        <p data-i18n="privacy.section8Text">The app may contain links to third-party websites. TimeCalc is not responsible for their content or privacy practices.</p>
+                    </article>
 
-        <h2>How To Contact Us</h2>
-        <p>If you have any questions, contact us at <a href="mailto:teaxapp@gmail.com">teaxapp@gmail.com</a>.</p>
+                    <article class="legal-card">
+                        <h2 data-i18n="privacy.section9Title">Changes to this policy</h2>
+                        <p data-i18n="privacy.section9Text">This policy may be updated from time to time. Changes become effective when the updated policy is posted on this page.</p>
+                    </article>
+                </div>
 
-        <h1>Last Edited on Jul 19, 2020</h1>
-    </div>
+                <aside>
+                    <article class="contact-card">
+                        <h2 data-i18n="privacy.contactTitle">Contact</h2>
+                        <p data-i18n="privacy.contactText">For privacy questions, contact:</p>
+                        <p><a class="contact-email" href="mailto:teaxapp@gmail.com" data-i18n-common="contactEmail">teaxapp@gmail.com</a></p>
+                    </article>
+
+                    <article class="contact-card">
+                        <h2 data-i18n="privacy.summaryTitle">Summary</h2>
+                        <div class="note">
+                            <p data-i18n="privacy.summary1">Local app data stays on the device</p>
+                            <p data-i18n="privacy.summary2">AdMob and Firebase-related services are used</p>
+                            <p data-i18n="privacy.summary3">No sale of personal information is described here</p>
+                        </div>
+                    </article>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-card">
+            <div class="footer-links">
+                <a href="./index.html" data-i18n-common="navHome">Home</a>
+                <a href="./contact.html" data-i18n-common="navContact">Contact</a>
+            </div>
+            <select id="language-switcher" class="lang-select"></select>
+        </div>
+    </footer>
+
+    <script src="./site.js"></script>
 </body>
 </html>

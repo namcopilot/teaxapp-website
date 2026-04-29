@@ -1,136 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Teaxapp - Time Calculator</title>
-        <link rel="icon" type="image/png" href="assets/favicon.png" />
-        <link rel="stylesheet" href="styles.css">
-        <style>
-            @font-face {
-                font-family: 'ABeeZee';
-                src: url('fonts/ABeeZee-Regular.ttf') format('truetype');
-            }
-            @font-face {
-                font-family: 'Roboto';
-                src: url('fonts/Roboto-Regular.ttf') format('truetype');
-            }
-            body {
-                font-family: Arial, sans-serif;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                margin: 0;
-                background-color: #fff;
-                color: #333;
-                text-align: center;
-            }
-            header {
-                width: 100%;
-                padding: 30px 0;
-                border-bottom: 1px solid #ddd;
-                position: absolute;
-                top: 0;
-                text-align: center;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            }
-            .logo {
-                font-size: 30px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: bold;
-                letter-spacing: 3px;
-            }
-            .logo span {
-                color: #00C013;
-            }
-            .logo strong {
-                font-weight: 300;
-            }
-            .logo a {
-                text-decoration: none;
-                color: inherit;
-            }
-            .subtitle a {
-                font-size: 14px;
-                color: rgba(0, 0, 0, 0.4);
-                font-family: 'ABeeZee', sans-serif;
-                letter-spacing: 0.1em;
-                text-decoration: none;
-            }
-            .content img {
-                width: 100px;
-                height: 100px;
-            }
-            .app-title {
-                font-size: 20px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: bold;
-                letter-spacing: 2px;
-                color: rgb(0, 0, 0);
-                margin-top: 10px;
-            }
-            .app-subtitle {
-                font-size: 16px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: normal;
-                letter-spacing: 1px;
-                color: rgba(0, 0, 0, 0.45);
-            }
-            .store-container {
-                margin-top: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-            .store-links {
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                align-items: center;
-            }
-            .store-item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: relative;
-            }
-            .store-links img {
-                width: 177px;
-                height: 59px;
-            }
-            @media (max-width: 600px) {
-                .store-links {
-                    flex-direction: column;
-                    gap: 20px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <div class="logo"> <a href="https://teaxapp.com"><span>Tea</span><strong>xapp</strong></a> </div>
-            <div class="subtitle"><a href="https://teaxapp.com">made apps with the teas</a></div>
-        </header>
-        <div class="content">
-            <img src="assets/icon.png" alt="App Icon">
-            <div class="app-title">Time Calculator</div>
-            <div class="app-subtitle">Hours work & Time Between</div>
-            <div class="store-container">
-                <div class="store-links">
-                    <div class="store-item">
-                        <a href="https://apps.apple.com/us/app/time-calculator/id1369060155"><img src="assets/app-store.png" alt="Download on App Store"></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeCalc | Hours, Duration, Dates & Age</title>
+    <meta name="description" content="Calculate work hours, durations, dates, and age in seconds.">
+    <link rel="stylesheet" href="./site.css">
+</head>
+<body data-page="landing">
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="./index.html">
+                <img class="brand-mark" src="./imgs/timecalc-icon.png" alt="TimeCalc app icon">
+                <span class="brand-copy">
+                    <span class="brand-title" data-i18n-common="appName">TimeCalc</span>
+                    <span class="brand-subtitle" data-i18n-common="subtitle">Hours, Duration, Dates &amp; Age</span>
+                </span>
+            </a>
+
+            <div class="header-store-buttons" aria-label="Download TimeCalc">
+                <a class="store-link os-store-link" data-store-platform="ios" href="https://apps.apple.com/us/app/time-calculator/id1369060155" target="_blank" rel="noreferrer">
+                    <img id="app-store-badge-header" class="store-badge store-badge-header" src="./imgs/store-badges/app-store/en.svg" alt="Download on the App Store">
+                </a>
+                <a class="store-link os-store-link" data-store-platform="android" href="https://play.google.com/store/apps/details?id=com.teaxapp.hourcal" target="_blank" rel="noreferrer">
+                    <img id="google-play-badge-header" class="store-badge store-badge-header" src="./imgs/store-badges/google-play/en.svg" alt="Get it on Google Play">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <h1 data-i18n="landing.heroTitle">Calculate work hours, durations, dates, and age in seconds.</h1>
+                    <p data-i18n="landing.heroText">Add & subtract time, track work hours, and get accurate results instantly. No account, no cloud — your data stays private.</p>
+
+                    <div class="meta-row">
+                        <span class="meta-pill" data-i18n="landing.keyFeature1">Automatic light &amp; dark mode</span>
+                        <span class="meta-pill" data-i18n="landing.keyFeature2">Supports both 12h and 24h formats</span>
+                        <span class="meta-pill" data-i18n="landing.keyFeature3">Multi-language support</span>
+                        <span class="meta-pill" data-i18n="landing.keyFeature4">No account, no cloud — 100% local data</span>
+                        <span class="meta-pill" data-i18n="landing.keyFeature5">Privacy-first — your data never leaves your device</span>
                     </div>
-                    <div class="store-item">
-                        <a href="https://play.google.com/store/apps/details?id=com.teaxapp.hourcal"><img src="assets/google-play.png" alt="Get it on Google Play"></a>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="phone-card">
+                        <div class="phone-panel">
+                            <strong data-i18n="landing.phonePanel1">Time Calculator</strong>
+                            <p data-i18n="landing.feature1Desc">Add, subtract multiple time values in sequence. Instant results, calculation history saved. Convert between time units.</p>
+                        </div>
+
+                        <div class="phone-panel">
+                            <strong data-i18n="landing.phonePanel2">Time Between (Duration)</strong>
+                            <p data-i18n="landing.feature2Desc">Enter any start and end time to calculate the exact duration. Organize into separate categories. Export PDF reports with Premium.</p>
+                        </div>
+
+                        <div class="phone-panel">
+                            <strong data-i18n="landing.phonePanel3">Date Calculator (Add &amp; Subtract)</strong>
+                            <p data-i18n="landing.feature3Desc">From any starting date, add or subtract years, months, weeks, days, hours, and minutes to get the resulting date. Calendar-accurate arithmetic.</p>
+                        </div>
+
+                        <div class="phone-panel">
+                            <strong data-i18n="landing.feature4Title">Age Calculator</strong>
+                            <p data-i18n="landing.feature4Desc">Calculate exact age in years, months, and days from a birth date. Save multiple birthdays to track.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="section" id="features">
+            <div class="container">
+                <div class="preview-strip" aria-label="TimeCalc app previews">
+                    <article class="feature-card">
+                        <div class="feature-preview">
+                            <img data-preview-index="0" src="./imgs/previews/english/0x0ss%20(2).png" alt="TimeCalc Time Calculator preview" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-preview">
+                            <img data-preview-index="1" src="./imgs/previews/english/0x0ss%20(3).png" alt="TimeCalc Time Between preview" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-preview">
+                            <img data-preview-index="2" src="./imgs/previews/english/0x0ss%20(4).png" alt="TimeCalc Date Calculator preview" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-preview">
+                            <img data-preview-index="3" src="./imgs/previews/english/0x0ss%20(5).png" alt="TimeCalc Age Calculator preview" loading="lazy">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid-2">
+                <article class="section-panel">
+                    <h3 data-i18n="landing.premiumTitle">Premium</h3>
+                    <p data-i18n="landing.premiumUpgradeText">Upgrade to Premium to unlock the full experience:</p>
+                    <ul>
+                        <li data-i18n="landing.premium1">Remove all ads</li>
+                        <li data-i18n="landing.premium2">Unlimited Time Between categories (free: 1)</li>
+                        <li data-i18n="landing.premium3">Export reports to PDF</li>
+                        <li data-i18n="landing.premium4">Advanced unit customization</li>
+                    </ul>
+                    <p class="premium-note" data-i18n="landing.premiumPlansText">Subscription plans: Monthly, Quarterly, Yearly, or Lifetime.</p>
+                </article>
+
+                <article class="section-panel download-panel-card" id="download">
+                    <div class="download-brand">
+                        <img class="brand-mark" src="./imgs/timecalc-icon.png" alt="TimeCalc app icon">
+                        <span class="brand-copy">
+                            <span class="brand-title" data-i18n-common="appName">TimeCalc</span>
+                            <span class="brand-subtitle" data-i18n-common="subtitle">Hours, Duration, Dates &amp; Age</span>
+                        </span>
+                    </div>
+                    <div class="store-buttons">
+                        <a class="store-link" href="https://apps.apple.com/us/app/time-calculator/id1369060155" target="_blank" rel="noreferrer">
+                            <img id="app-store-badge-section" class="store-badge" src="./imgs/store-badges/app-store/en.svg" alt="Download on the App Store">
+                        </a>
+                        <a class="store-link" href="https://play.google.com/store/apps/details?id=com.teaxapp.hourcal" target="_blank" rel="noreferrer">
+                            <img id="google-play-badge-section" class="store-badge" src="./imgs/store-badges/google-play/en.svg" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-card">
+            <div class="footer-links">
+                <a href="./privacy-policy.html" data-i18n-common="navPrivacy">Privacy</a>
+                <a href="./contact.html" data-i18n-common="navContact">Contact</a>
+            </div>
+            <select id="language-switcher" class="lang-select"></select>
         </div>
-        <footer class="footer">
-            <p id="footer-text">Copyright © 2025 Teaxapp. All rights reserved. <a href="contact">Contact</a></p>
-        </footer>
-    </body>
+    </footer>
+
+    <script src="./site.js"></script>
+</body>
 </html>
