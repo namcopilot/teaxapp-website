@@ -22,36 +22,36 @@ const STORE_LINKS = {
 
 const STORE_BADGES = {
     appStore: {
-        en: "./imgs/store-badges/app-store/en.svg",
-        vi: "./imgs/store-badges/app-store/vi.svg",
-        de: "./imgs/store-badges/app-store/de.svg",
-        es: "./imgs/store-badges/app-store/es.svg",
-        fr: "./imgs/store-badges/app-store/fr.svg",
-        it: "./imgs/store-badges/app-store/it.svg",
-        id: "./imgs/store-badges/app-store/id.svg",
-        ja: "./imgs/store-badges/app-store/ja.svg",
-        ko: "./imgs/store-badges/app-store/ko.svg",
-        pt: "./imgs/store-badges/app-store/pt.svg",
-        ru: "./imgs/store-badges/app-store/ru.svg",
-        th: "./imgs/store-badges/app-store/th.svg",
-        tr: "./imgs/store-badges/app-store/tr.svg",
-        zh: "./imgs/store-badges/app-store/zh.svg"
+        en: "../imgs/store-badges/app-store/en.svg",
+        vi: "../imgs/store-badges/app-store/vi.svg",
+        de: "../imgs/store-badges/app-store/de.svg",
+        es: "../imgs/store-badges/app-store/es.svg",
+        fr: "../imgs/store-badges/app-store/fr.svg",
+        it: "../imgs/store-badges/app-store/it.svg",
+        id: "../imgs/store-badges/app-store/id.svg",
+        ja: "../imgs/store-badges/app-store/ja.svg",
+        ko: "../imgs/store-badges/app-store/ko.svg",
+        pt: "../imgs/store-badges/app-store/pt.svg",
+        ru: "../imgs/store-badges/app-store/ru.svg",
+        th: "../imgs/store-badges/app-store/th.svg",
+        tr: "../imgs/store-badges/app-store/tr.svg",
+        zh: "../imgs/store-badges/app-store/zh.svg"
     },
     playStore: {
-        en: "./imgs/store-badges/google-play/en.svg",
-        vi: "./imgs/store-badges/google-play/vi.svg",
-        de: "./imgs/store-badges/google-play/de.svg",
-        es: "./imgs/store-badges/google-play/es.svg",
-        fr: "./imgs/store-badges/google-play/fr.svg",
-        it: "./imgs/store-badges/google-play/it.svg",
-        id: "./imgs/store-badges/google-play/id.svg",
-        ja: "./imgs/store-badges/google-play/ja.svg",
-        ko: "./imgs/store-badges/google-play/ko.svg",
-        pt: "./imgs/store-badges/google-play/pt.svg",
-        ru: "./imgs/store-badges/google-play/ru.svg",
-        th: "./imgs/store-badges/google-play/th.svg",
-        tr: "./imgs/store-badges/google-play/tr.svg",
-        zh: "./imgs/store-badges/google-play/zh.svg"
+        en: "../imgs/store-badges/google-play/en.svg",
+        vi: "../imgs/store-badges/google-play/vi.svg",
+        de: "../imgs/store-badges/google-play/de.svg",
+        es: "../imgs/store-badges/google-play/es.svg",
+        fr: "../imgs/store-badges/google-play/fr.svg",
+        it: "../imgs/store-badges/google-play/it.svg",
+        id: "../imgs/store-badges/google-play/id.svg",
+        ja: "../imgs/store-badges/google-play/ja.svg",
+        ko: "../imgs/store-badges/google-play/ko.svg",
+        pt: "../imgs/store-badges/google-play/pt.svg",
+        ru: "../imgs/store-badges/google-play/ru.svg",
+        th: "../imgs/store-badges/google-play/th.svg",
+        tr: "../imgs/store-badges/google-play/tr.svg",
+        zh: "../imgs/store-badges/google-play/zh.svg"
     }
 };
 
@@ -1557,7 +1557,7 @@ function pickLanguage() {
 function getPreviewSrc(lang, index) {
     const folder = PREVIEW_FOLDERS[lang] || PREVIEW_FOLDERS.en;
     const file = PREVIEW_FILES[index] || PREVIEW_FILES[0];
-    return `./imgs/previews/${folder}/${encodeURIComponent(file)}`;
+    return `../imgs/previews/${folder}/${encodeURIComponent(file)}`;
 }
 
 function updatePreviewImages(lang) {
