@@ -15,6 +15,12 @@ const SITE_LANGUAGES = [
     { code: "zh", label: "简体中文" }
 ];
 
+const SITE_ROOT = new URL(".", document.currentScript ? document.currentScript.src : window.location.href);
+
+function assetPath(path) {
+    return new URL(path.replace(/^\/+/, ""), SITE_ROOT).toString();
+}
+
 const STORE_LINKS = {
     appStore: "https://apps.apple.com/us/app/time-calculator/id1369060155",
     playStore: "https://play.google.com/store/apps/details?id=com.teaxapp.hourcal"
@@ -58,18 +64,25 @@ const STORE_BADGES = {
 const PREVIEW_FOLDERS = {
     en: "english",
     vi: "vietnamese",
+    de: "german",
+    fr: "french",
     es: "spanish",
+    it: "italian",
     id: "indonesian",
     ja: "japanese",
+    ko: "korean",
+    pt: "portuguese",
+    ru: "russian",
     th: "thai",
+    tr: "turkish",
     zh: "chinese"
 };
 
 const PREVIEW_FILES = [
-    "0x0ss (2).png",
-    "0x0ss (3).png",
-    "0x0ss (4).png",
-    "0x0ss (5).png"
+    "preview_1.png",
+    "preview_2.png",
+    "preview_3.png",
+    "preview_4.png"
 ];
 
 const I18N = {
@@ -121,7 +134,7 @@ const I18N = {
             premiumText: "Unlock the full experience with more flexibility and no ads.",
             premiumUpgradeText: "Upgrade to Premium to unlock the full experience:",
             premium1: "Remove all ads",
-            premium2: "Unlimited Time Between categories (free: 1)",
+            premium2: "Unlimited Time Between categories",
             premium3: "Export reports to PDF",
             premium4: "Advanced unit customization",
             premiumPlansText: "Subscription plans: Monthly, Quarterly, Yearly, or Lifetime.",
@@ -144,7 +157,7 @@ const I18N = {
             section2Title: "How information is used",
             section2Text: "Collected information may be used to maintain and improve the app, analyze usage, prevent fraud and abuse, personalize advertising, and provide promotional information related to the service.",
             section3Title: "Third-party services",
-            section3Text: "The app uses third-party services such as AdMob and Firebase-related services, including Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links, and Firebase Predictions.",
+            section3Text: "The app uses third-party services such as AdMob, Google Analytics for Firebase, RevenueCat, and Apple/Google app store purchase services.",
             section4Title: "How information is protected",
             section4Text: "Appropriate physical, electronic, and procedural measures are used to help protect information. No security method is completely perfect or impenetrable.",
             section5Title: "Sharing and sale of information",
@@ -161,7 +174,7 @@ const I18N = {
             contactText: "For privacy questions, contact:",
             summaryTitle: "Summary",
             summary1: "Local app data stays on the device",
-            summary2: "AdMob and Firebase-related services are used",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat, and app store purchase services are used",
             summary3: "No sale of personal information is described here",
         },
         contact: {
@@ -249,7 +262,7 @@ const I18N = {
             section2Title: "Cách thông tin được sử dụng",
             section2Text: "Thông tin được thu thập có thể được dùng để duy trì và cải thiện ứng dụng, phân tích mức sử dụng, ngăn chặn gian lận và lạm dụng, cá nhân hóa quảng cáo và cung cấp thông tin quảng bá liên quan đến dịch vụ.",
             section3Title: "Dịch vụ bên thứ ba",
-            section3Text: "Ứng dụng sử dụng các dịch vụ bên thứ ba như AdMob và các dịch vụ liên quan đến Firebase, bao gồm Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links và Firebase Predictions.",
+            section3Text: "Ứng dụng sử dụng các dịch vụ bên thứ ba như AdMob, Google Analytics for Firebase, RevenueCat và dịch vụ mua hàng của Apple/Google app store.",
             section4Title: "Bảo vệ thông tin",
             section4Text: "Các biện pháp vật lý, điện tử và quy trình phù hợp được áp dụng để hỗ trợ bảo vệ thông tin. Không có phương thức bảo mật nào hoàn toàn tuyệt đối.",
             section5Title: "Chia sẻ và bán thông tin",
@@ -266,7 +279,7 @@ const I18N = {
             contactText: "Nếu có câu hỏi về quyền riêng tư, vui lòng liên hệ:",
             summaryTitle: "Tóm tắt",
             summary1: "Dữ liệu trong ứng dụng được lưu trên thiết bị",
-            summary2: "Ứng dụng sử dụng AdMob và các dịch vụ liên quan đến Firebase",
+            summary2: "Ứng dụng sử dụng AdMob, Google Analytics for Firebase, RevenueCat và dịch vụ mua hàng của app store",
             summary3: "Chính sách này không mô tả việc bán thông tin cá nhân",
         },
         contact: {
@@ -354,7 +367,7 @@ const I18N = {
             section2Title: "Wie Informationen verwendet werden",
             section2Text: "Erfasste Informationen können verwendet werden, um die App zu betreiben und zu verbessern, die Nutzung zu analysieren, Betrug und Missbrauch zu verhindern, Werbung zu personalisieren und servicebezogene Werbeinformationen bereitzustellen.",
             section3Title: "Drittanbieterdienste",
-            section3Text: "Die App verwendet Drittanbieterdienste wie AdMob und Firebase-bezogene Dienste, darunter Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links und Firebase Predictions.",
+            section3Text: "Die App verwendet Drittanbieterdienste wie AdMob, Google Analytics for Firebase, RevenueCat und Kaufdienste der Apple/Google App Stores.",
             section4Title: "Wie Informationen geschützt werden",
             section4Text: "Geeignete physische, elektronische und verfahrensbezogene Maßnahmen helfen beim Schutz von Informationen. Keine Sicherheitsmethode ist vollkommen oder undurchdringbar.",
             section5Title: "Weitergabe und Verkauf von Informationen",
@@ -371,7 +384,7 @@ const I18N = {
             contactText: "Bei Fragen zum Datenschutz kontaktiere bitte:",
             summaryTitle: "Zusammenfassung",
             summary1: "Lokale App-Daten bleiben auf dem Gerät",
-            summary2: "AdMob und Firebase-bezogene Dienste werden verwendet",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat und App-Store-Kaufdienste werden verwendet",
             summary3: "Ein Verkauf personenbezogener Daten wird hier nicht beschrieben",
         },
         contact: {
@@ -459,7 +472,7 @@ const I18N = {
             section2Title: "Cómo se usa la información",
             section2Text: "La información recopilada puede utilizarse para mantener y mejorar la app, analizar el uso, prevenir fraude y abuso, personalizar publicidad y proporcionar información promocional relacionada con el servicio.",
             section3Title: "Servicios de terceros",
-            section3Text: "La app utiliza servicios de terceros como AdMob y servicios relacionados con Firebase, incluidos Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links y Firebase Predictions.",
+            section3Text: "La app utiliza servicios de terceros como AdMob, Google Analytics for Firebase, RevenueCat y servicios de compra de Apple/Google app store.",
             section4Title: "Cómo se protege la información",
             section4Text: "Se aplican medidas físicas, electrónicas y procedimentales adecuadas para ayudar a proteger la información. Ningún método de seguridad es completamente perfecto o impenetrable.",
             section5Title: "Compartición y venta de información",
@@ -476,7 +489,7 @@ const I18N = {
             contactText: "Para consultas de privacidad, contacta con:",
             summaryTitle: "Resumen",
             summary1: "Los datos locales de la app permanecen en el dispositivo",
-            summary2: "Se usan AdMob y servicios relacionados con Firebase",
+            summary2: "Se usan AdMob, Google Analytics for Firebase, RevenueCat y servicios de compra de app store",
             summary3: "Aquí no se describe la venta de información personal",
         },
         contact: {
@@ -564,7 +577,7 @@ const I18N = {
             section2Title: "Utilisation des informations",
             section2Text: "Les informations collectées peuvent être utilisées pour maintenir et améliorer l’application, analyser son utilisation, prévenir la fraude et les abus, personnaliser la publicité et fournir des informations promotionnelles liées au service.",
             section3Title: "Services tiers",
-            section3Text: "L’application utilise des services tiers tels qu’AdMob et des services liés à Firebase, notamment Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links et Firebase Predictions.",
+            section3Text: "L’application utilise des services tiers tels qu’AdMob, Google Analytics for Firebase, RevenueCat et les services d’achat des app stores Apple/Google.",
             section4Title: "Protection des informations",
             section4Text: "Des mesures physiques, électroniques et procédurales appropriées sont utilisées pour aider à protéger les informations. Aucune méthode de sécurité n’est totalement parfaite ou impénétrable.",
             section5Title: "Partage et vente d’informations",
@@ -581,7 +594,7 @@ const I18N = {
             contactText: "Pour toute question relative à la confidentialité, contactez :",
             summaryTitle: "Résumé",
             summary1: "Les données locales restent sur l’appareil",
-            summary2: "AdMob et des services liés à Firebase sont utilisés",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat et les services d’achat des app stores sont utilisés",
             summary3: "Aucune vente d’informations personnelles n’est décrite ici",
         },
         contact: {
@@ -669,7 +682,7 @@ const I18N = {
             section2Title: "Come vengono usate le informazioni",
             section2Text: "Le informazioni raccolte possono essere utilizzate per mantenere e migliorare l’app, analizzarne l’uso, prevenire frodi e abusi, personalizzare la pubblicità e fornire informazioni promozionali relative al servizio.",
             section3Title: "Servizi di terze parti",
-            section3Text: "L’app utilizza servizi di terze parti come AdMob e servizi correlati a Firebase, tra cui Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links e Firebase Predictions.",
+            section3Text: "L’app utilizza servizi di terze parti come AdMob, Google Analytics for Firebase, RevenueCat e i servizi di acquisto degli app store Apple/Google.",
             section4Title: "Protezione delle informazioni",
             section4Text: "Vengono adottate misure fisiche, elettroniche e procedurali appropriate per aiutare a proteggere le informazioni. Nessun metodo di sicurezza è completamente perfetto o impenetrabile.",
             section5Title: "Condivisione e vendita di informazioni",
@@ -686,7 +699,7 @@ const I18N = {
             contactText: "Per domande sulla privacy, contatta:",
             summaryTitle: "Riepilogo",
             summary1: "I dati locali dell’app restano sul dispositivo",
-            summary2: "Vengono utilizzati AdMob e servizi correlati a Firebase",
+            summary2: "Vengono utilizzati AdMob, Google Analytics for Firebase, RevenueCat e servizi di acquisto degli app store",
             summary3: "Qui non è descritta alcuna vendita di dati personali",
         },
         contact: {
@@ -774,7 +787,7 @@ const I18N = {
             section2Title: "Bagaimana informasi digunakan",
             section2Text: "Informasi yang dikumpulkan dapat digunakan untuk memelihara dan meningkatkan aplikasi, menganalisis penggunaan, mencegah penipuan dan penyalahgunaan, mempersonalisasi iklan, dan menyediakan informasi promosi terkait layanan.",
             section3Title: "Layanan pihak ketiga",
-            section3Text: "Aplikasi menggunakan layanan pihak ketiga seperti AdMob dan layanan terkait Firebase, termasuk Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links, dan Firebase Predictions.",
+            section3Text: "Aplikasi menggunakan layanan pihak ketiga seperti AdMob, Google Analytics for Firebase, RevenueCat, dan layanan pembelian app store Apple/Google.",
             section4Title: "Perlindungan informasi",
             section4Text: "Tindakan fisik, elektronik, dan prosedural yang sesuai digunakan untuk membantu melindungi informasi. Tidak ada metode keamanan yang sepenuhnya sempurna atau tidak dapat ditembus.",
             section5Title: "Berbagi dan penjualan informasi",
@@ -791,7 +804,7 @@ const I18N = {
             contactText: "Untuk pertanyaan privasi, hubungi:",
             summaryTitle: "Ringkasan",
             summary1: "Data aplikasi lokal tetap berada di perangkat",
-            summary2: "AdMob dan layanan terkait Firebase digunakan",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat, dan layanan pembelian app store digunakan",
             summary3: "Tidak ada penjualan informasi pribadi yang dijelaskan di sini",
         },
         contact: {
@@ -879,7 +892,7 @@ const I18N = {
             section2Title: "情報の利用目的",
             section2Text: "収集された情報は、アプリの維持・改善、利用状況の分析、不正や濫用の防止、広告の最適化、およびサービス関連の案内のために利用される場合があります。",
             section3Title: "第三者サービス",
-            section3Text: "アプリは AdMob および Firebase 関連サービスを利用しています。これには Google Analytics for Firebase、Firebase Remote Config、Firebase Dynamic Links、Firebase Predictions が含まれます。",
+            section3Text: "アプリは AdMob、Google Analytics for Firebase、RevenueCat、および Apple/Google のアプリストア購入サービスなどの第三者サービスを利用しています。",
             section4Title: "情報の保護",
             section4Text: "情報保護のために、物理的、電子的、手続的な対策が講じられます。ただし、完全に安全で侵入不可能な方法は存在しません。",
             section5Title: "情報の共有と販売",
@@ -896,7 +909,7 @@ const I18N = {
             contactText: "プライバシーに関するお問い合わせ先:",
             summaryTitle: "概要",
             summary1: "アプリ内データは端末に保存されます",
-            summary2: "AdMob と Firebase 関連サービスを利用しています",
+            summary2: "AdMob、Google Analytics for Firebase、RevenueCat、アプリストア購入サービスを利用しています",
             summary3: "個人情報の販売については記載していません",
         },
         contact: {
@@ -984,7 +997,7 @@ const I18N = {
             section2Title: "정보 사용 방식",
             section2Text: "수집된 정보는 앱 유지 및 개선, 사용 분석, 사기 및 남용 방지, 광고 개인화, 서비스 관련 안내 제공에 사용될 수 있습니다.",
             section3Title: "제3자 서비스",
-            section3Text: "앱은 AdMob 및 Firebase 관련 서비스를 사용합니다. 여기에는 Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links, Firebase Predictions가 포함됩니다.",
+            section3Text: "앱은 AdMob, Google Analytics for Firebase, RevenueCat 및 Apple/Google 앱 스토어 구매 서비스와 같은 제3자 서비스를 사용합니다.",
             section4Title: "정보 보호",
             section4Text: "정보 보호를 위해 적절한 물리적, 전자적, 절차적 조치를 사용합니다. 완벽하거나 침투 불가능한 보안 방식은 존재하지 않습니다.",
             section5Title: "정보 공유 및 판매",
@@ -1001,7 +1014,7 @@ const I18N = {
             contactText: "개인정보 관련 문의:",
             summaryTitle: "요약",
             summary1: "앱 데이터는 기기에 저장됩니다",
-            summary2: "AdMob 및 Firebase 관련 서비스를 사용합니다",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat 및 앱 스토어 구매 서비스를 사용합니다",
             summary3: "개인정보 판매는 여기 설명되어 있지 않습니다",
         },
         contact: {
@@ -1089,7 +1102,7 @@ const I18N = {
             section2Title: "Como as informações são usadas",
             section2Text: "As informações coletadas podem ser usadas para manter e melhorar o aplicativo, analisar o uso, prevenir fraude e abuso, personalizar publicidade e fornecer informações promocionais relacionadas ao serviço.",
             section3Title: "Serviços de terceiros",
-            section3Text: "O aplicativo usa serviços de terceiros como AdMob e serviços relacionados ao Firebase, incluindo Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links e Firebase Predictions.",
+            section3Text: "O aplicativo usa serviços de terceiros como AdMob, Google Analytics for Firebase, RevenueCat e serviços de compra das app stores Apple/Google.",
             section4Title: "Como as informações são protegidas",
             section4Text: "Medidas físicas, eletrônicas e processuais adequadas são usadas para ajudar a proteger as informações. Nenhum método de segurança é totalmente perfeito ou impenetrável.",
             section5Title: "Compartilhamento e venda de informações",
@@ -1106,7 +1119,7 @@ const I18N = {
             contactText: "Para dúvidas sobre privacidade, entre em contato com:",
             summaryTitle: "Resumo",
             summary1: "Os dados locais do app permanecem no dispositivo",
-            summary2: "AdMob e serviços relacionados ao Firebase são usados",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat e serviços de compra das app stores são usados",
             summary3: "Nenhuma venda de informações pessoais é descrita aqui",
         },
         contact: {
@@ -1194,7 +1207,7 @@ const I18N = {
             section2Title: "Как используется информация",
             section2Text: "Собранная информация может использоваться для поддержки и улучшения приложения, анализа использования, предотвращения мошенничества и злоупотреблений, персонализации рекламы и предоставления рекламной информации, связанной с сервисом.",
             section3Title: "Сторонние сервисы",
-            section3Text: "Приложение использует сторонние сервисы, такие как AdMob и сервисы, связанные с Firebase, включая Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links и Firebase Predictions.",
+            section3Text: "Приложение использует сторонние сервисы, такие как AdMob, Google Analytics for Firebase, RevenueCat и сервисы покупок Apple/Google app store.",
             section4Title: "Как защищается информация",
             section4Text: "Для защиты информации используются соответствующие физические, электронные и процедурные меры. Ни один метод безопасности не является полностью идеальным или непробиваемым.",
             section5Title: "Передача и продажа информации",
@@ -1211,7 +1224,7 @@ const I18N = {
             contactText: "По вопросам конфиденциальности свяжитесь с нами:",
             summaryTitle: "Кратко",
             summary1: "Локальные данные приложения остаются на устройстве",
-            summary2: "Используются AdMob и сервисы, связанные с Firebase",
+            summary2: "Используются AdMob, Google Analytics for Firebase, RevenueCat и сервисы покупок app store",
             summary3: "Продажа персональной информации здесь не описывается",
         },
         contact: {
@@ -1299,7 +1312,7 @@ const I18N = {
             section2Title: "การใช้ข้อมูล",
             section2Text: "ข้อมูลที่เก็บอาจถูกใช้เพื่อดูแลและปรับปรุงแอป วิเคราะห์การใช้งาน ป้องกันการฉ้อโกงและการใช้งานที่ไม่เหมาะสม ปรับโฆษณาให้เหมาะสม และให้ข้อมูลประชาสัมพันธ์ที่เกี่ยวข้องกับบริการ",
             section3Title: "บริการของบุคคลที่สาม",
-            section3Text: "แอปใช้บริการของบุคคลที่สาม เช่น AdMob และบริการที่เกี่ยวข้องกับ Firebase รวมถึง Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links และ Firebase Predictions",
+            section3Text: "แอปใช้บริการของบุคคลที่สาม เช่น AdMob, Google Analytics for Firebase, RevenueCat และบริการซื้อของ Apple/Google app store",
             section4Title: "การปกป้องข้อมูล",
             section4Text: "มีการใช้มาตรการทางกายภาพ อิเล็กทรอนิกส์ และกระบวนการที่เหมาะสมเพื่อช่วยปกป้องข้อมูล อย่างไรก็ตาม ไม่มีวิธีรักษาความปลอดภัยใดที่สมบูรณ์แบบหรือป้องกันได้ทั้งหมด",
             section5Title: "การแบ่งปันและการขายข้อมูล",
@@ -1316,7 +1329,7 @@ const I18N = {
             contactText: "หากมีคำถามเกี่ยวกับความเป็นส่วนตัว โปรดติดต่อ:",
             summaryTitle: "สรุป",
             summary1: "ข้อมูลในแอปถูกเก็บไว้บนอุปกรณ์",
-            summary2: "มีการใช้ AdMob และบริการที่เกี่ยวข้องกับ Firebase",
+            summary2: "มีการใช้ AdMob, Google Analytics for Firebase, RevenueCat และบริการซื้อของ app store",
             summary3: "ไม่มีการอธิบายการขายข้อมูลส่วนบุคคลไว้ที่นี่",
         },
         contact: {
@@ -1404,7 +1417,7 @@ const I18N = {
             section2Title: "Bilgilerin kullanım şekli",
             section2Text: "Toplanan bilgiler; uygulamayı sürdürmek ve geliştirmek, kullanımı analiz etmek, dolandırıcılık ve kötüye kullanımı önlemek, reklamları kişiselleştirmek ve hizmetle ilgili tanıtım bilgileri sağlamak için kullanılabilir.",
             section3Title: "Üçüncü taraf hizmetler",
-            section3Text: "Uygulama; AdMob ve Google Analytics for Firebase, Firebase Remote Config, Firebase Dynamic Links ve Firebase Predictions dahil olmak üzere Firebase ile ilgili hizmetleri kullanır.",
+            section3Text: "Uygulama; AdMob, Google Analytics for Firebase, RevenueCat ve Apple/Google app store satın alma hizmetleri gibi üçüncü taraf hizmetleri kullanır.",
             section4Title: "Bilgiler nasıl korunur",
             section4Text: "Bilgileri korumaya yardımcı olmak için uygun fiziksel, elektronik ve usule ilişkin önlemler kullanılır. Hiçbir güvenlik yöntemi tamamen kusursuz veya aşılamaz değildir.",
             section5Title: "Bilgilerin paylaşılması ve satılması",
@@ -1421,7 +1434,7 @@ const I18N = {
             contactText: "Gizlilikle ilgili sorular için iletişime geçin:",
             summaryTitle: "Özet",
             summary1: "Uygulama verileri cihazda kalır",
-            summary2: "AdMob ve Firebase ile ilgili hizmetler kullanılır",
+            summary2: "AdMob, Google Analytics for Firebase, RevenueCat ve app store satın alma hizmetleri kullanılır",
             summary3: "Kişisel bilgilerin satışı burada açıklanmamıştır",
         },
         contact: {
@@ -1509,7 +1522,7 @@ const I18N = {
             section2Title: "信息如何使用",
             section2Text: "收集的信息可用于维护和改进应用、分析使用情况、防止欺诈和滥用、个性化广告以及提供与服务相关的推广信息。",
             section3Title: "第三方服务",
-            section3Text: "应用使用第三方服务，例如 AdMob 和与 Firebase 相关的服务，包括 Google Analytics for Firebase、Firebase Remote Config、Firebase Dynamic Links 和 Firebase Predictions。",
+            section3Text: "应用使用第三方服务，例如 AdMob、Google Analytics for Firebase、RevenueCat，以及 Apple/Google 应用商店购买服务。",
             section4Title: "信息保护",
             section4Text: "我们会使用适当的物理、电子和流程性措施来帮助保护信息。但没有任何安全方式是绝对完美或不可突破的。",
             section5Title: "信息共享与出售",
@@ -1526,7 +1539,7 @@ const I18N = {
             contactText: "如有隐私相关问题，请联系：",
             summaryTitle: "摘要",
             summary1: "应用本地数据保存在设备上",
-            summary2: "使用 AdMob 和与 Firebase 相关的服务",
+            summary2: "使用 AdMob、Google Analytics for Firebase、RevenueCat 和应用商店购买服务",
             summary3: "此处未说明出售个人信息",
         },
         contact: {
@@ -1557,7 +1570,7 @@ function pickLanguage() {
 function getPreviewSrc(lang, index) {
     const folder = PREVIEW_FOLDERS[lang] || PREVIEW_FOLDERS.en;
     const file = PREVIEW_FILES[index] || PREVIEW_FILES[0];
-    return `/imgs/previews/${folder}/${encodeURIComponent(file)}`;
+    return assetPath(`imgs/previews/${folder}/${encodeURIComponent(file)}`);
 }
 
 function updatePreviewImages(lang) {
@@ -1609,11 +1622,11 @@ function setLanguage(code) {
     ].filter(Boolean);
 
     appStoreBadges.forEach((img) => {
-        img.src = STORE_BADGES.appStore[lang] || STORE_BADGES.appStore.en;
+        img.src = assetPath(STORE_BADGES.appStore[lang] || STORE_BADGES.appStore.en);
     });
 
     playStoreBadges.forEach((img) => {
-        img.src = STORE_BADGES.playStore[lang] || STORE_BADGES.playStore.en;
+        img.src = assetPath(STORE_BADGES.playStore[lang] || STORE_BADGES.playStore.en);
     });
 
     updatePreviewImages(lang);
